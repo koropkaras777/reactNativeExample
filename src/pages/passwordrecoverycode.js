@@ -1,0 +1,32 @@
+import React from 'react';
+import { View, TextInput, Text, TouchableHighlight } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
+import styles from '../styles/login-style.js';
+import NetworkChecker from '../components/checkInternetConnection.js';
+
+const RecoveryCode = () => {
+  return (
+    <View>
+      <View style={styles.view}>
+        <Text style={styles.title}>Password Recovery</Text>
+        <View style={styles.login}>
+          <Text style={styles.subtitle}>Enter the code sent to your mail</Text>
+          <TextInput
+            placeholder='Enter code'
+            textContentType='none'
+            style={styles.input}
+          />
+          <TouchableHighlight onPress={() => Actions.passwordrecoveryfinal()}>
+            <View style={styles.bttn}>
+              <Text style={styles.bttnText}>Next step</Text>
+            </View>
+          </TouchableHighlight>
+        </View>
+      </View>
+      <NetworkChecker />
+    </View>
+  );
+}
+
+export default RecoveryCode;
